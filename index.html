@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VelvetFrame Gallery</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google Fonts: Cormorant Garamond (display) + Jost (body) -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet" />
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!--  PARTICLE CANVAS (animated background)             -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!--  FLOATING SOCIAL SIDEBAR                           -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <aside class="social-sidebar" aria-label="Social links">
+    <a href="#" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" class="social-link" title="Pinterest"><i class="fab fa-pinterest"></i></a>
+    <a href="#" class="social-link" title="Behance"><i class="fab fa-behance"></i></a>
+    <a href="#" class="social-link" title="X / Twitter"><i class="fab fa-x-twitter"></i></a>
+    <div class="social-line"></div>
+  </aside>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!--  NAVBAR                                             -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <!-- Logo -->
+      <a href="#" class="logo">
+        <span class="logo-icon"><i class="fas fa-camera-retro"></i></span>
+        <span class="logo-text">Velvet<em>Frame</em></span>
+      </a>
+
+      <!-- Desktop nav links -->
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero" class="nav-link">Home</a></li>
+        <li><a href="#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="#stats" class="nav-link">Stats</a></li>
+        <li><a href="#footer" class="nav-link">Contact</a></li>
+      </ul>
+
+      <!-- Right controls -->
+      <div class="nav-controls">
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme">
+          <i class="fas fa-moon" id="themeIcon"></i>
+        </button>
+        <button class="slideshow-btn" id="slideshowBtn" title="Auto Slideshow">
+          <i class="fas fa-play"></i>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!--  HERO SECTION                                       -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-overlay"></div>
+    <!-- Cinematic grain texture -->
+    <div class="hero-grain"></div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow reveal-up">— Curated Visual Excellence —</p>
+      <h1 class="hero-title reveal-up delay-1">
+        Where Every Frame<br /><em>Tells a Story</em>
+      </h1>
+      <p class="hero-subtitle reveal-up delay-2">
+        A luxury photography exhibition spanning nature, architecture, fashion, cars & travel.
+      </p>
+      <div class="hero-actions reveal-up delay-3">
+        <a href="#gallery" class="btn-primary">
+          <span>Explore Gallery</span>
+          <i class="fas fa-arrow-down"></i>
+        </a>
+        <a href="#stats" class="btn-ghost">Our Collection</a>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator">
+      <div class="scroll-dot"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!--  STATS SECTION                                      -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <section class="stats-section" id="stats">
+    <div class="stats-grid">
+      <div class="stat-card reveal-up">
+        <span class="stat-number" data-target="250">0</span><span class="stat-suffix">+</span>
+        <p class="stat-label">Curated Images</p>
+      </div>
+      <div class="stat-card reveal-up delay-1">
+        <span class="stat-number" data-target="5">0</span>
+        <p class="stat-label">Gallery Categories</p>
+      </div>
+      <div class="stat-card reveal-up delay-2">
+        <span class="stat-number" data-target="48">0</span><span class="stat-suffix">K</span>
+        <p class="stat-label">Monthly Visitors</p>
+      </div>
+      <div class="stat-card reveal-up delay-3">
+        <span class="stat-number" data-target="12">0</span>
+        <p class="stat-label">Awards Won</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!--  GALLERY SECTION                                    -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <section class="gallery-section" id="gallery">
+    <div class="section-header reveal-up">
+      <p class="section-eyebrow">The Collection</p>
+      <h2 class="section-title">VelvetFrame <em>Gallery</em></h2>
+      <p class="section-desc">Discover a world of visual art, thoughtfully curated for the discerning eye.</p>
+    </div>
+
+    <!-- Search + Filter Bar -->
+    <div class="gallery-controls reveal-up">
+      <div class="search-wrapper">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" id="searchInput" class="search-input" placeholder="Search images…" autocomplete="off" />
+        <button class="search-clear" id="searchClear"><i class="fas fa-times"></i></button>
+      </div>
+
+      <div class="filter-bar" id="filterBar" role="tablist">
+        <button class="filter-btn active" data-filter="all" role="tab">
+          <i class="fas fa-th"></i> All
+        </button>
+        <button class="filter-btn" data-filter="nature" role="tab">
+          <i class="fas fa-leaf"></i> Nature
+        </button>
+        <button class="filter-btn" data-filter="cars" role="tab">
+          <i class="fas fa-car"></i> Cars
+        </button>
+        <button class="filter-btn" data-filter="architecture" role="tab">
+          <i class="fas fa-building"></i> Architecture
+        </button>
+        <button class="filter-btn" data-filter="fashion" role="tab">
+          <i class="fas fa-tshirt"></i> Fashion
+        </button>
+        <button class="filter-btn" data-filter="travel" role="tab">
+          <i class="fas fa-plane"></i> Travel
+        </button>
+      </div>
+
+      <!-- Effect filters -->
+      <div class="effect-bar">
+        <span class="effect-label">Effects:</span>
+        <button class="effect-btn active" data-effect="none">Original</button>
+        <button class="effect-btn" data-effect="bw">B&amp;W</button>
+        <button class="effect-btn" data-effect="vintage">Vintage</button>
+        <button class="effect-btn" data-effect="warm">Warm</button>
+        <button class="effect-btn" data-effect="cinematic">Cinematic</button>
+      </div>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="gallery-grid" id="galleryGrid">
+      <!-- Injected by script.js -->
+    </div>
+
+    <!-- No results -->
+    <div class="no-results hidden" id="noResults">
+      <i class="fas fa-images"></i>
+      <p>No images found. Try a different search or filter.</p>
+    </div>
+
+    <!-- Load more -->
+    <div class="load-more-wrapper reveal-up">
+      <button class="btn-primary" id="loadMoreBtn">
+        <span>Load More</span>
+        <i class="fas fa-plus"></i>
+      </button>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!--  LIGHTBOX                                           -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <div class="lightbox" id="lightbox" aria-modal="true" role="dialog" aria-hidden="true">
+    <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+
+    <button class="lb-close" id="lbClose" title="Close (Esc)"><i class="fas fa-times"></i></button>
+    <button class="lb-prev" id="lbPrev" title="Previous"><i class="fas fa-chevron-left"></i></button>
+    <button class="lb-next" id="lbNext" title="Next"><i class="fas fa-chevron-right"></i></button>
+
+    <div class="lb-content">
+      <div class="lb-image-wrapper">
+        <img src="" alt="" id="lbImage" class="lb-image" />
+        <div class="lb-loader"><div class="lb-spinner"></div></div>
+      </div>
+      <div class="lb-meta">
+        <p class="lb-title" id="lbTitle"></p>
+        <p class="lb-category" id="lbCategory"></p>
+        <button class="lb-fav" id="lbFav" title="Bookmark"><i class="fas fa-bookmark"></i></button>
+      </div>
+    </div>
+
+    <!-- Thumbnail strip -->
+    <div class="lb-thumbnails" id="lbThumbnails"></div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!--  FAVORITES PANEL                                    -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <div class="fav-panel" id="favPanel">
+    <div class="fav-header">
+      <span><i class="fas fa-bookmark"></i> Bookmarks</span>
+      <button id="favClose"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="fav-grid" id="favGrid">
+      <p class="fav-empty">No bookmarks yet.<br/>Tap <i class="fas fa-bookmark"></i> to save.</p>
+    </div>
+  </div>
+  <button class="fav-trigger" id="favTrigger" title="Bookmarks">
+    <i class="fas fa-bookmark"></i>
+    <span class="fav-count" id="favCount">0</span>
+  </button>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!--  FOOTER                                             -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <footer class="footer" id="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="logo footer-logo">
+          <span class="logo-icon"><i class="fas fa-camera-retro"></i></span>
+          <span class="logo-text">Velvet<em>Frame</em></span>
+        </a>
+        <p class="footer-tagline">Where every frame tells a story.</p>
+        <div class="footer-socials">
+          <a href="#" class="fsocial"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="fsocial"><i class="fab fa-pinterest"></i></a>
+          <a href="#" class="fsocial"><i class="fab fa-behance"></i></a>
+          <a href="#" class="fsocial"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" class="fsocial"><i class="fab fa-vimeo-v"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <h4>Gallery</h4>
+        <ul>
+          <li><a href="#">Nature</a></li>
+          <li><a href="#">Cars</a></li>
+          <li><a href="#">Architecture</a></li>
+          <li><a href="#">Fashion</a></li>
+          <li><a href="#">Travel</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Exhibitions</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Commissions</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-newsletter">
+        <h4>Newsletter</h4>
+        <p>Receive curated collections in your inbox.</p>
+        <div class="newsletter-form">
+          <input type="email" placeholder="your@email.com" />
+          <button><i class="fas fa-paper-plane"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 VelvetFrame Gallery. All rights reserved.</p>
+      <p>Crafted with <i class="fas fa-heart" style="color:var(--gold)"></i> for the art of photography.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
